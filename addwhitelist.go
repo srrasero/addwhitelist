@@ -47,7 +47,7 @@ func main() {
 
 	patternFound := false
 	for _, value := range response.PatternsAllowed {
-		//fmt.Printf("Index %d, value: %s\n", index, value)
+
 		if value == pattern {
 			patternFound = true
 			break
@@ -62,7 +62,7 @@ func main() {
 			fmt.Println("There has been an error during the marshalling: " + err.Error())
 			return
 		}
-		//log.Println("Json sent " + string(rb))
+
 		originalString := string(rb)
 
 		req, err := http.NewRequest("PUT", fmt.Sprintf("https://api.github.com/orgs/%s/actions/permissions/selected-actions", org),
@@ -90,13 +90,11 @@ func main() {
 
 func doRequest(req *http.Request, token string) ([]byte, error) {
 
-	//proxyUrl, _ := url.Parse("http://proxyapps.gsnet.corp:80")
 	HTTPClient := &http.Client{
 		Transport: &http.Transport{
 			TLSClientConfig: &tls.Config{
 				InsecureSkipVerify: true,
 			},
-			//Proxy: http.ProxyURL(proxyUrl),
 		},
 	}
 
