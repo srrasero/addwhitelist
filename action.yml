@@ -19,5 +19,5 @@ runs:
   using: composite
   steps:
   - id: addPattern
-    run: go run ${{ github.action_path }}/goexample.go ${{ inputs.token }} ${{ inputs.pattern }} ${{ inputs.org }}
+    run: go run ${{ github.action_path }}/addwhitelist.go ${{ inputs.token }} ${{ inputs.pattern }} ${{ inputs.org }}
     shell: bash
