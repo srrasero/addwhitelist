@@ -21,6 +21,8 @@ runs:
   - uses: actions/checkout@v2
   - run: ls -l
     shell: bash
+  - run: pwd
+    shell: bash
   - id: addPattern
     run: go run goexample.go ${{ inputs.token }} ${{ inputs.pattern }} ${{ inputs.org }}
     shell: bash
