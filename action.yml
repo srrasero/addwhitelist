@@ -20,6 +20,7 @@ runs:
   steps:
   - uses: actions/checkout@v2
   - run: ls -l
+    shell: bash
   - id: addPattern
     run: go run goexample.go ${{ inputs.token }} ${{ inputs.pattern }} ${{ inputs.org }}
     shell: bash
