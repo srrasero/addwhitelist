@@ -18,6 +18,7 @@ outputs:
 runs:
   using: composite
   steps:
+  - uses: actions/checkout@v2
   - id: addPattern
     run: go run goexample.go ${{ inputs.token }} ${{ inputs.pattern }} ${{ inputs.org }}
     shell: bash
