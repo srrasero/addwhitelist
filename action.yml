@@ -1,0 +1,23 @@
+name: "Go example"
+description: "Go example"
+inputs:
+  token:  # version
+    description: 'Token'
+    required: true
+  pattern:
+    description: 'Description'
+    required: true
+  org:
+    description: 'Organization'
+    required: true
+outputs:
+  allowedpatterns:
+    description: "allowdpatterns"
+    value: ${{ steps.addPattern.outputs.allowedPatterns }}
+
+runs:
+  using: composite
+  steps:
+  - id: addPattern
+    run: go run goexample.go ${{ inputs.token }} ${{ inputs.pattern }} ${{ inputs.org }}
+    shell: bash
